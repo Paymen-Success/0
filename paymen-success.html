@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran Berhasil</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+      }
+      .success-message {
+        font-size: 24px;
+        color: green;
+      }
+      button {
+        background-color: #25d366; /* WhatsApp green */
+        color: white;
+        padding: 15px 30px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+      button:hover {
+        background-color: #128c7e;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Terima Kasih!</h1>
+    <div class="success-message">
+      Pembayaran Anda telah berhasil. Kami telah menerima pembayaran Anda, dan
+      tiket Anda sedang diproses.
+    </div>
+    <p>
+      Jika Anda membutuhkan bantuan lebih lanjut, silakan hubungi kami melalui
+      WhatsApp.
+    </p>
+    <button onclick="redirectToWhatsApp()">Hubungi Kami di WhatsApp</button>
+
+    <script>
+      function redirectToWhatsApp() {
+        const phoneNumber = "0895327157414";
+        const message =
+          "Pembayaran saya berhasil, saya ingin konfirmasi tiket."; // Pesan default
+        const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+          message
+        )}`;
+        window.location.href = url; // Redirect ke WhatsApp
+      }
+    </script>
+  </body>
+</html>
